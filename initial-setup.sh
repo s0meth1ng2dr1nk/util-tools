@@ -1,5 +1,7 @@
+#!/usr/bin/env bash
+set -eu
 sudo bash -c '
-    apt update && apt install expect curl -y
+    apt update && apt install expect curl git -y
     
     curl -fsSL https://get.docker.com -o /tmp/get-docker.sh && \
     chmod u+x /tmp/get-docker.sh && \
