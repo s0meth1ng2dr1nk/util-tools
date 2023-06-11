@@ -3,16 +3,14 @@
 set -eu
 sudo bash -c '
     PASSWORD='${PASSWORD}' && \
-    PORT=18022 && \
     apt update && apt install -y expect curl git && \
     curl -fsSL https://get.docker.com -o /tmp/get-docker.sh && \
     chmod u+x /tmp/get-docker.sh && \
     (cd /tmp && ./get-docker.sh) && \
     rm -f /tmp/get-docker.sh && \
-    sed -i -e "/PasswordAuthentication/s/^/#/" -e "/PermitRootLogin/s/^/#/" -e "/Port/s/^/#/" /etc/ssh/sshd_config && \
+    sed -i -e "/PasswordAuthentication/s/^/#/" -e "/PermitRootLogin/s/^/#/" /etc/ssh/sshd_config && \
     echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config && \
     echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
-    echo "Port ${PORT}" >> /etc/ssh/sshd_config && \ 
     expect -c "
     spawn passwd
     expect \"New password:\"
