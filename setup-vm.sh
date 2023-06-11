@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# export PASSWORD='' && apt update && apt install -y wget && wget https://raw.githubusercontent.com/s0meth1ng2dr1nk/util-tools/main/setup-vm.sh && chmod u+x ./setup-vm.sh && ./setup-vm.sh && rm -f ./setup-vm.sh
+# export PASSWORD='' && URL=https://raw.githubusercontent.com/s0meth1ng2dr1nk/util-tools/main/setup-vm.sh && SCRIPT=$(basename ${URL}) && sudo apt update && sudo apt install -y wget && wget ${URL} && chmod u+x ./${SCRIPT} && ./${SCRIPT} && rm -f ./${SCRIPT}
 set -eu
 sudo bash -c '
     PASSWORD='${PASSWORD}' && \
