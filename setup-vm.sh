@@ -12,7 +12,7 @@ sudo bash -c '
     sed -i -e "/PasswordAuthentication/s/^/#/" -e "/PermitRootLogin/s/^/#/" -e "/Port/s/^/#/" /etc/ssh/sshd_config && \
     echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config && \
     echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
-    echo "Port ${PORT}" >> && \ 
+    echo "Port ${PORT}" >> /etc/ssh/sshd_config && \ 
     expect -c "
     spawn passwd
     expect \"New password:\"
