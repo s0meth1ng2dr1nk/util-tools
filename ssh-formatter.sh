@@ -35,7 +35,7 @@ build_ssh_format() {
     local _PERCENT=$(mulstr % ${_MUL_NUM}) && \
     local _CW="-CW ${_PERCENT}h:${_PERCENT}p" && \
     local _TAB=$(mulstr ${SPACE} ${_MUL_NUM}) && \
-    local _ESCAPE=$(mulstr ${APOS} ${_MUL_NUM_1})${QUOTE}$(mulstr ${APOS} ${_MUL_NUM_1})
+    local _ESCAPE=$(mulstr ${QUOTE}${APOS} ${_MUL_NUM_1})${QUOTE}$(mulstr ${APOS}${QUOTE} ${_MUL_NUM_1})
   [ ${N_} -gt 1 ] && \
     local _PROXY_COMMAND='-o ProxyCommand='
   echo "${_ESCAPE}${NEWLINE}${_TAB}sshpass -p ${DOLLER_}PASS_${N_}} ssh ${DOLLER_}USER_${N_}}@${DOLLER_}IP_${N_}} -p ${DOLLER_}PORT_${N_}} ${DOLLER_}OPT_${N_}} ${_CW} ${_PROXY_COMMAND}@{1}${NEWLINE}${_TAB/${SPACE}/}${_ESCAPE}"
