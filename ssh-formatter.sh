@@ -38,7 +38,7 @@ build_ssh_format() {
     local _ESCAPE=$(mulstr ${QUOTE}${APOS} ${_MUL_NUM_1})${QUOTE}$(mulstr ${APOS}${QUOTE} ${_MUL_NUM_1})
   [ ${N_} -gt 1 ] && \
     local _PROXY_COMMAND='-o ProxyCommand='
-  echo "${_ESCAPE}${NEWLINE}${_TAB}sshpass -p ${DOLLER_}PASS_${N_}} ssh ${DOLLER_}USER_${N_}}@${DOLLER_}IP_${N_}} -p ${DOLLER_}PORT_${N_}} ${DOLLER_}OPT_${N_}} ${_CW} ${_PROXY_COMMAND}@{1}${NEWLINE}${_TAB/${SPACE}/}${_ESCAPE}"
+  echo "${_ESCAPE}${NEWLINE}${_TAB}sshpass -p ${DOLLER_}PASS${N_}} ssh ${DOLLER_}USER${N_}}@${DOLLER_}HOST${N_}} -p ${DOLLER_}PORT${N_}} ${DOLLER_}OPT${N_}} ${_CW} ${_PROXY_COMMAND}@{1}${NEWLINE}${_TAB/${SPACE}/}${_ESCAPE}"
 }
 build_config_format() {
   local N_=$1
