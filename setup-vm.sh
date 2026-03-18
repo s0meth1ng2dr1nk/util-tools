@@ -3,7 +3,7 @@
 set -eu
 sudo bash -c '
     PASSWORD='${PASSWORD}' && \
-    apt update && apt install -y expect curl git && \
+    apt update && apt install -y expect curl git nodejs npm && \
     curl -fsSL https://get.docker.com -o /tmp/get-docker.sh && \
     chmod u+x /tmp/get-docker.sh && \
     (cd /tmp && ./get-docker.sh) && \
