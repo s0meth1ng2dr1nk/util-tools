@@ -46,7 +46,8 @@ sudo bash -c '
         libxtst6 \
         lsb-release \
         wget \
-        xdg-utils
+        xdg-utils \
+        chromium
     curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
     chmod u+x /tmp/get-docker.sh
     (cd /tmp && ./get-docker.sh)
