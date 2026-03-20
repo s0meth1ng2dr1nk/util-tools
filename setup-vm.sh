@@ -14,7 +14,7 @@ sudo bash -c '
         python3 \
         python3-pip
     export PIP_ROOT_USER_ACTION=ignore
-    pip3 install --upgrade \
+    pip3 install --break-system-packages --upgrade \
         pip \
         curl_cffi
     curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
