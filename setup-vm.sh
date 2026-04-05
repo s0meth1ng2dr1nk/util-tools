@@ -21,9 +21,11 @@ sudo bash -c '
     chmod u+x /tmp/get-docker.sh
     (cd /tmp && ./get-docker.sh)
     rm -f /tmp/get-docker.sh
-    sed -i -e "/PasswordAuthentication/s/^/#/" -e "/PermitRootLogin/s/^/#/" /etc/ssh/sshd_config
-    echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-    echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+    for _FILE in $(grep -r PasswordAuthentication /etc/ssh -l); do
+        sed -i -e "/PasswordAuthentication/s/^/#/" -e "/PermitRootLogin/s/^/#/" ${_FILE}
+        echo "PasswordAuthentication yes" >> ${_FILE}
+        echo "PermitRootLogin yes" >> ${_FILE}
+    done
     expect -c "
     spawn passwd
     expect \"New password:\"
@@ -31,5 +33,5 @@ sudo bash -c '
     expect \"Retype new password:\"
     send \"${PASSWORD}\n\"
     expect "
-    service sshd restart
+    systemctl restart ssh
 '
